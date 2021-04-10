@@ -1,3 +1,4 @@
+// 1st Approach(Time Complexity-nlogn)
 class Solution{
     public:
     // arr : given array
@@ -11,3 +12,23 @@ class Solution{
     
         }
 };
+
+// 2nd Approach-->Time Complexity(O(n))
+priority_queue<int,vector<int>,greater<int>>p;
+for(int i=0;i<n;i++)
+{
+p.push(arr[i]);
+}
+int ans,i=1;
+while(!p.empty())
+{
+
+if(i==k)
+{
+ans=p.top();
+break;
+}
+i++;
+p.pop();
+}
+cout<<ans<<endl;
