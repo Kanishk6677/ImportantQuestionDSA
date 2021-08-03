@@ -1,0 +1,44 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        
+        vector<int> temp = nums; 
+        int size = nums.size();
+        int n1 = 0; 
+        int n2 = 0; 
+        sort(temp.begin(), temp.end()); 
+        for (int i = 0; i < size-1; i++) {
+            int key = target-temp[i]; 
+            int start = i+1;
+            int end = size-1;
+			// applying the binary search
+            while(start <= end) {
+                int mid = (start + end) / 2;
+                if (temp[mid] == (key)) {
+                    n2 = temp[mid];
+                    n1 = temp[i];
+                    break;
+                } else if (temp[mid] > key) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            }
+        }
+		// since we need to find the index so we need to find the indexes of the n1 and n2
+        vector<int> result;
+        vector<int>::iterator it;
+		// searching for the numbers 
+        for (int i = 0; i < size; i++) {
+            it = std::find(result.begin(), result.end(), i); // checking if the same index is present in vector 
+            if (nums[i] == n1 && it != nums.end()) {
+                result.push_back(i);
+                continue; // continue because if we are finding n1 = 0, n2 = 0 then it will get duplicate so used continue
+            }
+            if (nums[i] == n2 && it != nums.end()) {
+                result.push_back(i);
+            }
+        }
+        return result;
+    }
+};
