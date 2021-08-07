@@ -23,3 +23,8 @@ public:
         return dp[N][sum];
     }
 };
+
+// The most famous varaition in this question is Equal Sum Partiton Problem
+// What we can do in that is : First find out the sum of given array
+// if sum is odd return false;
+// if sum is true return isSubsetSum(N,arr,sum/2)
