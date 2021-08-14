@@ -1,3 +1,5 @@
+// It is the cycle approach in which we will get optimum TC.
+
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
