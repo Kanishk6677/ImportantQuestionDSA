@@ -5,3 +5,17 @@ function(N-1,A,C,B);
 move from A to C;
 function(N-1,B,C,A);
 }
+
+
+// code in C++
+void ToH(int n, char A, char B, char C) 
+{ 
+    if (n == 1) 
+    { 
+        cout<<"Move 1 from " <<  A << " to " << C << endl; 
+        return; 
+    } 
+    ToH(n-1, A, C, B); 
+    cout<<"Move " << n << " from " <<  A << " to " << C << endl; 
+    ToH(n-1, B, A, C); 
+}
