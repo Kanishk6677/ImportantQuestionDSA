@@ -1,0 +1,31 @@
+// This question has basically 3 approaches. One is Recursion, other is altering the Recursive code and sending the DP one.
+class Solution {
+public:
+    int path(int i, int j,int n,int m)
+  {
+  if(i>=n || j>=m) return 0;
+  if(i==n-1 and j==m-1) return 1;
+  else return path(i+1,j,n,m)+path(i,j+1,n,m);
+  
+  }
+    int uniquePaths(int m, int n) {
+        return path(0,0,m,n);
+    }
+};
+
+
+
+// Second Approach is Combination Approach....As the DP solution was also rejected by Google , we had to think for another approach
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        int N=m+n-2;
+        int r=m-1;
+        double res=1;
+        for(int i=1;i<=r;i++)
+        {
+            res=res*(N-r+i)/i;   //Simple nCr computuation
+        }
+        return (int)res;
+    }
+};
