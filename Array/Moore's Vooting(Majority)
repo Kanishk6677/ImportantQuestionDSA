@@ -58,3 +58,39 @@ public:
         return ans;
     }
 };
+
+
+
+// If single Majority element does not exist
+
+
+
+  int find(int a[],int size)
+    {
+        int num;
+    int count=0;
+    for(int i=0;i<size;i++)
+    {
+        if(count==0) {num=a[i];}
+        if(a[i]==num) count++;
+        else count--;
+    }
+     return num;
+    }
+    bool isMajority(int a[],int N,int cand)
+    {
+        int count=0;
+        for(int i=0;i<N;i++)
+        {
+            if(a[i]==cand) count++;
+        }
+        if(count>N/2) return true;
+        return false;
+    }
+    int majorityElement(int a[], int size)
+    {
+        
+    int cand=find(a,size);
+          if (isMajority(a, size, cand))  return cand;
+        else return -1;
+    }
