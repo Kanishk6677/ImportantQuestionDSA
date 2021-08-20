@@ -92,5 +92,5 @@ public:
         
     int cand=find(a,size);
           if (isMajority(a, size, cand))  return cand;
-        else return -1;
+         else return -1;
     }
