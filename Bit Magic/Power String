@@ -1,0 +1,14 @@
+void printPowSet(string s)
+{
+int n=s.size();
+int powLen=1<<n;
+for(int i=0;i<powLen;i++)
+{
+for(int j=0;j<n;j++)
+{
+if(i&(1<<j)!=0)
+print(s[j]);
+}
+print('\n');
+}
+}
