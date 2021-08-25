@@ -1,0 +1,9 @@
+// Question is to check whether Kth bit is set or not
+void Kthset(int n,int k)
+{
+
+if(n& (1<<(k-1))!=0)
+print(yes);
+else
+print(no);
+}
