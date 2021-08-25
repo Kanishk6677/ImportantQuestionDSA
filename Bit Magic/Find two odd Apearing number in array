@@ -2,7 +2,7 @@
 
 void oddAppearing(int,arr[],int n)
 {
-for(int i=0i<n;i++) XOR=XOR^arr[i];
+for(int i=0;i<n;i++) XOR=XOR^arr[i];
 int sn=XOR&~(XOR-1);
 for(int i=0;i<n;i++)
 {
