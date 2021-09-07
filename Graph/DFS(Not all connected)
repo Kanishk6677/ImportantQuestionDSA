@@ -1,0 +1,24 @@
+void DFSrec(vector<int>adj[],int src,bool vis[])
+{
+vis[src]=true;
+cout<<src<<endl;
+for(auto x:adj[src]
+if(vis[x]==false)
+DFSrec(adj,x,vis);
+
+
+}
+
+void DFS(vector<int>adj[],int V)
+{
+bool vis[V];
+for(int i=0;i<V;i++)
+{
+vis[i]=false;
+}
+for(int i=0;i<V;i++)
+{
+if(vis[i]==false)
+DFSrec(adj,i,vis);
+}
+}
