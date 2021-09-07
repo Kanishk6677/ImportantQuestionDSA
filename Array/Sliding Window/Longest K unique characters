@@ -1,0 +1,28 @@
+int longestKSubstr(string s, int K) {
+        int maxSize=-1;
+    int i=0; int j=0; int n=s.size();
+    unordered_map<char,int>mp;
+   
+    
+    while(j<n)
+    {
+       mp[s[j]]++;
+       if(mp.size()<K) j++;
+       else if(mp.size()==K) {maxSize=max(maxSize,j-i+1); j++;}
+       else if(mp.size()>K)
+       {
+           while(mp.size()>K)
+           {
+               mp[s[i]]--;
+              if(mp[s[i]]==0) mp.erase(s[i]);
+               i++;
+           }
+           j++;
+           
+           
+       }
+        
+        
+    }
+    return maxSize;
+    }
