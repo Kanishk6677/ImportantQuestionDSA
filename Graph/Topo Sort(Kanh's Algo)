@@ -17,6 +17,7 @@ vector<int> topoSort(int V, vector<int> adj[])
 	    {
 	        int u=q.front();
 	        q.pop();
+		// count++(if they have asked for detection of cycle and return (count!=V)
 	        ans.push_back(u);
 	        for(auto i:adj[u])
 	        {
