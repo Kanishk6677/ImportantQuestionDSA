@@ -1,25 +1,22 @@
-bool DFScycle(vector<int>adj[],int src,bool vis[],int parent)
-{
-vis[src]==true;
-for(auto x:adj[src])
-{
-if(vis[x]==false)
-if(DFScycle(adj,x,vis,src)==true)
-return true;
-else if(parent!=i) return true;
-return false;
-}
-
-
-
-bool DFS(vector<int>adj[],int V)
- {
- bool vis[V]={false};
- for(int i=0;i<V;i++)
- {
- if(vis[i]==false)
- if(DFScycle(adj,i,vis,-1)==true) return true;
- return false;
- }
- 
- 
+bool dfs(vector<int>adj[],int src,bool vis[],int parent)
+    {
+        
+        vis[src]=true;
+        for(auto x:adj[src]){
+            if(vis[x]==false){
+            if(dfs(adj,x,vis,src)==true) return true;}
+            else if(parent!=x) return true;
+        }
+        return false;
+        
+    }
+    bool isCycle(int V, vector<int> adj[]) {
+        bool vis[V]={false};
+        for(int i=0;i<V;i++)
+        {
+            if(vis[i]==0) 
+            if(dfs(adj,i,vis,-1)==true) return true;
+           
+        }
+        return false;
+    }
