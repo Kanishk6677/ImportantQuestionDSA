@@ -21,3 +21,26 @@ public:
       return res;
     }
 };
+
+
+// Pascal Triangle 2
+class Solution {
+public:
+    vector<int> getRow(int rowIndex) {
+       int k=rowIndex-1;
+        int n=rowIndex;
+        long long res=1;
+        vector<int>ans;
+        ans.push_back(1);
+        for(int i=0;i<k;i++)
+        {
+            
+            res*=(n-i);
+            res/=(i+1);
+            ans.push_back(res);
+        }
+        if(n!=0)
+        ans.push_back(1);
+        return ans;
+    }
+};
