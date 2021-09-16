@@ -1,4 +1,4 @@
-// In pascal traingle if value to be asked for a particular row and column, then the answer will be-->(n-1)C(r-1)
+// In pascal traingle if value to be asked for a particular row r and column, n then the answer will be-->(n-1)C(r-1)
 
 // Now solution of pascal triangle
 
@@ -11,7 +11,7 @@ public:
       {
       
       res[i].resize(i+1);
-      res[i][i]=res[i][0]=0;
+      res[i][i]=res[i][0]=1;
       for(int j=1;j<i;j++)
       {
       res[i][j]=res[i-1][j]+res[i-1][j];
