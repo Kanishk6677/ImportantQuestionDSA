@@ -1,0 +1,87 @@
+/************************************************************
+
+    Following is the linked list node structure:
+    
+    template <typename T>
+    class Node {
+        public:
+        T data;
+        Node* next;
+
+        Node(T data) {
+            next = NULL;
+            this->data = data;
+        }
+    };
+
+************************************************************/
+Node<int>*reverse(Node<int>* head,bool flag)
+{
+    Node<int>*curr=head;
+    Node<int>* prev=NULL;
+    while(curr!=NULL)
+    {
+        if(flag && curr->data==-1) break;
+        Node <int>*n=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=n;
+    }
+    return prev;
+}
+Node<int>* addTwoLists(Node<int>* first, Node<int>* second) {
+    Node<int>*l1=reverse(first,false);
+    Node<int>*l2=reverse(second,false);
+    Node<int>*newh=new Node<int>(-1);
+    Node<int>*temp=newh;
+    int sum=0;
+    int carry=0;
+    while(l1!=NULL and l2!=NULL)
+    {
+        sum=(l1->data+l2->data)+carry;
+        carry=sum/10;
+        sum=sum%10;
+        temp->data=sum;
+        Node<int>*n=new Node<int>(-1);
+        temp->next=n;
+        temp=n;
+        l1=l1->next;
+        l2=l2->next;
+        
+        
+    }
+    while(l1!=NULL)
+    {
+        sum=carry+l1->data;
+        carry=sum/10;
+        sum=sum%10;
+        temp->data=sum;
+        Node<int>*n=new Node<int>(-1);
+        temp->next=n;
+        temp=n;
+        l1=l1->next;
+    }
+     while(l2!=NULL)
+    {
+        sum=carry+l2->data;
+        carry=sum/10;
+        sum=sum%10;
+        temp->data=sum;
+        Node<int>*n=new Node<int>(-1);
+        temp->next=n;
+        temp=n;
+        l2=l2->next;
+    }
+    while(carry!=0)
+    {
+        sum=carry;
+        carry=carry/10;
+        sum=sum%10;
+        temp->data=sum;
+        Node<int>*n=new Node<int>(-1);
+        temp->next=n;
+        temp=n;
+    }
+    return reverse(newh,true);
+    
+}
