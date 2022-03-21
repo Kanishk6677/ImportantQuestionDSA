@@ -1,3 +1,29 @@
+// Memoization
+ bool f(int i,int target,vector<int> &arr,vector<vector<int>>&dp)
+    {
+        if(target==0) return true;
+        if(i==0) return (target==arr[i]);
+     if(dp[i][target]!=-1) return dp[i][target];
+        bool np=f(i-1,target,arr,dp);
+        bool p=false;
+        if(target>=arr[i])
+        {
+            p=f(i-1,target-arr[i],arr,dp);
+        }
+        return dp[i][target]=np || p;
+    }
+
+bool subsetSumToK(int n, int k, vector<int> &arr) {
+    vector<vector<int>>dp(n,vector<int>(k+1,-1));
+   return f(n-1,k,arr,dp);
+}
+
+
+
+
+
+
+
 class Solution {
 public:
     int subset(vector<int>&nums,int n,int M)
